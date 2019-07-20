@@ -101,7 +101,7 @@ export default class MyCustomChainBuilder extends CosmosSdkBuilder {
     super();
     // redefine codec for set new types if you want
     this.codec = new CosmosCodec();
-    this.codec.registerConcrete(new CyberDMsgLink(), 'cyberd/Link', {});
+    this.codec.registerConcrete(new CustomMessage(), 'my-custom-chain/custom-message', {});
   }
   
   myCustomRequest(sendOptions) {
