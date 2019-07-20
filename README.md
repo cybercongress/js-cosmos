@@ -165,6 +165,7 @@ class MyCustomChainRpc extends CosmosSdkRpc {
   
   async executeCustomRequest(txOptions, customAddress, customAmount) {
     const options = await this.prepareOptions(txOptions, {
+      // for using inside myCustomRequest
       customAddress,
       customAmount,
       // you can also redefine fee for example
