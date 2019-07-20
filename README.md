@@ -99,7 +99,7 @@ import CosmosCodec from 'cosmos-js/build/codec';
 export default class MyCustomChainBuilder extends CosmosSdkBuilder {
   constructor() {
     super();
-    // redefine codec for set new types if you want
+    // redefine codec for clear parent types and use only new types if you need
     this.codec = new CosmosCodec();
     this.codec.registerConcrete(new CustomMessage(), 'my-custom-chain/custom-message', {});
   }
