@@ -5,8 +5,6 @@ const axios = require('axios');
 const { stringToHex } = require('../utils/hex');
 
 export default class CyberdRpc extends CosmosSdkRpc {
-  cosmosBuilder;
-
   constructor(rpc, constants) {
     super(rpc, constants);
     this.cosmosBuilder = new CyberDBuilder();
