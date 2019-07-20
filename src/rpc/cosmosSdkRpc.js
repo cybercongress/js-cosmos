@@ -1,7 +1,7 @@
 import CosmosSdkBuilder from '../builders/cosmosSdkBuilder';
 
 const axios = require('axios');
-const { weiToDecimals } = require('../utils/common');
+const {weiToDecimals} = require('../utils/common');
 
 const encoding = require('../utils/encoding');
 
@@ -74,15 +74,13 @@ export default class CosmosSdkRpc {
     return addressInfo.data.value;
   }
 
-  async transfer(txOptions, addressTo, mAmount) {
+  async prepareOptions(txOptions, msgOptions) {
     const chainId = await this.getNetworkId();
     const account = await this.getAccountInfo(txOptions.address);
-
-    const amount = parseFloat(mAmount) * 10 ** 6;
-
+    
     const keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
 
-    const requestData = {
+    return _.extend({
       account: {
         address: keyPair.address,
         publicKey: keyPair.publicKey,
@@ -91,46 +89,44 @@ export default class CosmosSdkRpc {
         sequence: parseInt(account.sequence, 10),
       },
       chainId,
-      amount,
-      from: account.address,
-      to: addressTo,
-      denom: 'uatom',
       fee: {
         denom: 'uatom',
         amount: '500',
       },
       memo: '',
-    };
+    }, msgOptions || {});
+  }
 
-    const txRequest = this.cosmosBuilder.sendRequest(requestData);
-    console.log(
-      'txRequest',
-      JSON.stringify({
+  handleResponse(requestPromise) {
+    return requestPromise.then(res => {
+      if (!res.data) {
+        throw new Error('Empty data');
+      }
+      if (res.data.error) {
+        throw res.data.error;
+      }
+      return res.data;
+    })
+      .catch(error => {
+        console.error('Tx error', error);
+        throw error;
+      });
+  }
+
+  async transfer(txOptions, addressTo, mAmount) {
+    const amount = parseFloat(mAmount) * 10 ** 6;
+    const options = await this.prepareOptions(txOptions, {
+      from: txOptions.address,
+      to: addressTo,
+      amount,
+      denom: 'uatom'
+    });
+
+    const txRequest = this.cosmosBuilder.sendRequest(options);
+
+    return this.handleResponse(axios.post(`${this.rpc}/txs`, {
         tx: JSON.parse(txRequest.json),
         mode: 'sync',
-      })
-    );
-
-    return (
-      axios
-        .post(`${this.rpc}/txs`, {
-          tx: JSON.parse(txRequest.json),
-          mode: 'sync',
-        })
-        // .post(`${this.rpc}/txs`, JSON.parse(txRequest.json))
-        .then(res => {
-          if (!res.data) {
-            throw new Error('Empty data');
-          }
-          if (res.data.error) {
-            throw res.data.error;
-          }
-          return res.data;
-        })
-        .catch(error => {
-          console.error('Transfer error', error);
-          throw error;
-        })
-    );
+    }));
   }
 }

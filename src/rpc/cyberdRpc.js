@@ -2,7 +2,6 @@ import CosmosSdkRpc from './cosmosSdkRpc';
 import CyberDBuilder from '../builders/cyberDBuilder';
 
 const axios = require('axios');
-const encoding = require('../utils/encoding');
 const { stringToHex } = require('../utils/hex');
 
 export default class CyberdRpc extends CosmosSdkRpc {
@@ -72,95 +71,42 @@ export default class CyberdRpc extends CosmosSdkRpc {
   }
 
   async transfer(txOptions, addressTo, gAmount) {
-    const chainId = await this.getNetworkId();
-    const account = await this.getAccountInfo(txOptions.address);
-
     const amount = parseFloat(gAmount) * 10 ** 9;
-
-    const keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
-
-    const requestData = {
-      account: {
-        address: keyPair.address,
-        publicKey: keyPair.publicKey,
-        privateKey: keyPair.privateKey,
-        accountNumber: parseInt(account.account_number, 10),
-        sequence: parseInt(account.sequence, 10),
-      },
-      chainId,
-      amount,
+    
+    const options = await this.prepareOptions(txOptions, {
+      from: txOptions.address,
       to: addressTo,
+      amount,
       denom: 'cyb',
       fee: {
         denom: '',
         amount: '0',
-      },
-      memo: '',
-    };
+      }
+    });
 
-    const txRequest = this.cosmosBuilder.sendRequest(requestData);
-
-    return axios({
+    const txRequest = this.cosmosBuilder.sendRequest(options);
+    
+    return this.handleResponse(axios({
       method: 'get',
       url: `${this.rpc}/submit_signed_send?data="${this.prepareRequestData(txRequest)}"`,
-    })
-      .then(res => {
-        if (!res.data) {
-          throw new Error('Empty data');
-        }
-        if (res.data.error) {
-          throw res.data.error;
-        }
-        return res.data;
-      })
-      .catch(error => {
-        console.error('Transfer error', error);
-        throw error;
-      });
+    }));
   }
 
   async link(txOptions, keywordHash, contentHash) {
-    const chainId = await this.getNetworkId();
-    const account = await this.getAccountInfo(txOptions.address);
-
-    const keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
-
-    const requestData = {
-      account: {
-        address: keyPair.address,
-        publicKey: keyPair.publicKey,
-        privateKey: keyPair.privateKey,
-        accountNumber: parseInt(account.account_number, 10),
-        sequence: parseInt(account.sequence, 10),
-      },
+    const options = await this.prepareOptions(txOptions, {
+      fromCid: keywordHash,
+      toCid: contentHash,
       fee: {
         denom: '',
         amount: '0',
-      },
-      chainId,
-      fromCid: keywordHash,
-      toCid: contentHash,
-      memo: '',
-    };
+      }
+    });
 
-    const txRequest = this.cosmosBuilder.linkRequest(requestData);
+    const txRequest = this.cosmosBuilder.linkRequest(options);
 
-    return axios({
+    return this.handleResponse(axios({
       method: 'get',
       url: `${this.rpc}/submit_signed_link?data="${this.prepareRequestData(txRequest)}"`,
-    })
-      .then(res => {
-        if (!res.data) {
-          throw new Error('Empty data');
-        }
-        if (res.data.error) {
-          throw res.data.error;
-        }
-        return res.data;
-      })
-      .catch(error => {
-        console.error('Link error', error);
-        throw error;
-      });
+    }));
   }
 }
