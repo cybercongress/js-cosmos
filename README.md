@@ -1,7 +1,11 @@
+## Install
+```
+npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
+```
 ## Usage example for Cosmos-sdk
 ```
-import CosmosSdkRpc from './js-cosmos/rpc/cosmosSdkRpc';
-const constants = require('./js-cosmos/constants/cosmos');
+import CosmosSdkRpc from 'cosmos-js/build/rpc/cosmosSdkRpc';
+const constants = require('cosmos-js/build/constants/cosmos');
 
 const cosmosRpc = new CosmosSdkRpc('https://lcd-do-not-abuse.cosmostation.io', constants);
 
@@ -31,9 +35,9 @@ cosmosRpc
 
 ```
 
-import CyberDRpc from './js-cosmos/rpc/cyberdRpc';
+import CyberDRpc from 'cosmos-js/build/rpc/cyberdRpc';
 
-const constants = require('./js-cosmos/constants/cyberd');
+const constants = require('cosmos-js/build/constants/cyberd');
 
 const cyberdRpc = new CyberDRpc('http://93.125.26.210:34657', constants);
 
