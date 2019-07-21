@@ -5,8 +5,8 @@
   "scripts": {
     "lint": "eslint --ext .js src",
     "test": "./node_modules/.bin/mocha --exit -r @babel/register 'test/**/*.test.js'",
-    "clean": "rm -rf build && mkdir build",
-    "build-src": "./node_modules/.bin/babel -d ./build ./src -s",
+    "clean": "rm -rf dist && mkdir dist",
+    "build-src": "./node_modules/.bin/babel -d ./dist ./src -s",
     "build": "npm run clean && npm run build-src"
   },
   "dependencies": {

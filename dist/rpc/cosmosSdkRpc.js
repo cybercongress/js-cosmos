@@ -274,12 +274,12 @@ function () {
       return getAccountInfo;
     }()
   }, {
-    key: "transfer",
+    key: "prepareOptions",
     value: function () {
-      var _transfer = _asyncToGenerator(
+      var _prepareOptions = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee7(txOptions, addressTo, mAmount) {
-        var chainId, account, amount, keyPair, requestData, txRequest;
+      regeneratorRuntime.mark(function _callee7(txOptions, msgOptions) {
+        var chainId, account, keyPair;
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
@@ -294,9 +294,8 @@ function () {
 
               case 5:
                 account = _context7.sent;
-                amount = parseFloat(mAmount) * Math.pow(10, 6);
                 keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
-                requestData = {
+                return _context7.abrupt("return", _.extend({
                   account: {
                     address: keyPair.address,
                     publicKey: keyPair.publicKey,
@@ -305,41 +304,14 @@ function () {
                     sequence: parseInt(account.sequence, 10)
                   },
                   chainId: chainId,
-                  amount: amount,
-                  from: account.address,
-                  to: addressTo,
-                  denom: 'uatom',
                   fee: {
                     denom: 'uatom',
                     amount: '500'
                   },
                   memo: ''
-                };
-                txRequest = this.cosmosBuilder.sendRequest(requestData);
-                console.log('txRequest', JSON.stringify({
-                  tx: JSON.parse(txRequest.json),
-                  mode: 'sync'
-                }));
-                return _context7.abrupt("return", axios.post("".concat(this.rpc, "/txs"), {
-                  tx: JSON.parse(txRequest.json),
-                  mode: 'sync'
-                }) // .post(`${this.rpc}/txs`, JSON.parse(txRequest.json))
-                .then(function (res) {
-                  if (!res.data) {
-                    throw new Error('Empty data');
-                  }
+                }, msgOptions || {}));
 
-                  if (res.data.error) {
-                    throw res.data.error;
-                  }
-
-                  return res.data;
-                }).catch(function (error) {
-                  console.error('Transfer error', error);
-                  throw error;
-                }));
-
-              case 12:
+              case 8:
               case "end":
                 return _context7.stop();
             }
@@ -347,7 +319,67 @@ function () {
         }, _callee7, this);
       }));
 
-      function transfer(_x5, _x6, _x7) {
+      function prepareOptions(_x5, _x6) {
+        return _prepareOptions.apply(this, arguments);
+      }
+
+      return prepareOptions;
+    }()
+  }, {
+    key: "handleResponse",
+    value: function handleResponse(requestPromise) {
+      return requestPromise.then(function (res) {
+        if (!res.data) {
+          throw new Error('Empty data');
+        }
+
+        if (res.data.error) {
+          throw res.data.error;
+        }
+
+        return res.data;
+      }).catch(function (error) {
+        console.error('Tx error', error);
+        throw error;
+      });
+    }
+  }, {
+    key: "transfer",
+    value: function () {
+      var _transfer = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee8(txOptions, addressTo, mAmount) {
+        var amount, options, txRequest;
+        return regeneratorRuntime.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                amount = parseFloat(mAmount) * Math.pow(10, 6);
+                _context8.next = 3;
+                return this.prepareOptions(txOptions, {
+                  from: txOptions.address,
+                  to: addressTo,
+                  amount: amount,
+                  denom: 'uatom'
+                });
+
+              case 3:
+                options = _context8.sent;
+                txRequest = this.cosmosBuilder.sendRequest(options);
+                return _context8.abrupt("return", this.handleResponse(axios.post("".concat(this.rpc, "/txs"), {
+                  tx: JSON.parse(txRequest.json),
+                  mode: 'sync'
+                })));
+
+              case 6:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this);
+      }));
+
+      function transfer(_x7, _x8, _x9) {
         return _transfer.apply(this, arguments);
       }
 

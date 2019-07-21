@@ -7,8 +7,8 @@ npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 
 ## Usage example for Cosmos-sdk RPC
 ```$js
-import CosmosSdkRpc from 'cosmos-js/build/rpc/cosmosSdkRpc';
-const constants = require('cosmos-js/build/constants/cosmos');
+import CosmosSdkRpc from 'cosmos-js/dist/rpc/cosmosSdkRpc';
+const constants = require('cosmos-js/dist/constants/cosmos');
 
 const cosmosRpc = new CosmosSdkRpc('https://lcd-do-not-abuse.cosmostation.io', constants);
 
@@ -38,9 +38,9 @@ cosmosRpc
 
 ```$js
 
-import CyberDRpc from 'cosmos-js/build/rpc/cyberdRpc';
+import CyberDRpc from 'cosmos-js/dist/rpc/cyberdRpc';
 
-const constants = require('cosmos-js/build/constants/cyberd');
+const constants = require('cosmos-js/dist/constants/cyberd');
 
 const cyberdRpc = new CyberDRpc('http://93.125.26.210:34657', constants);
 
@@ -93,8 +93,8 @@ const CustomMessage = TypeFactory.create('CustomMessage', [
 Then - you can use this CustomMessage for build custom request.
 
 ```$js
-import CosmosSdkBuilder from 'cosmos-js/build/builders/cosmosSdkBuilder';
-import CosmosCodec from 'cosmos-js/build/codec';
+import CosmosSdkBuilder from 'cosmos-js/dist/builders/cosmosSdkBuilder';
+import CosmosCodec from 'cosmos-js/dist/codec';
 
 export default class MyCustomChainBuilder extends CosmosSdkBuilder {
   constructor() {
@@ -155,7 +155,7 @@ You can see the example in [cyberDBuilder.js](./src/builders/cyberDBuilder.js).
 For definition method for sending your custom transaction to rpc server - you can
 create custom rpc class:
 ```$js
-import CosmosSdkRpc from 'cosmos-js/build/rpc/cosmosSdkRpc';
+import CosmosSdkRpc from 'cosmos-js/dist/rpc/cosmosSdkRpc';
 
 class MyCustomChainRpc extends CosmosSdkRpc {
   constructor(rpc, constants) {

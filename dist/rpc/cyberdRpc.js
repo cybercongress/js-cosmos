@@ -24,8 +24,6 @@ require("core-js/modules/es.object.to-string");
 
 require("core-js/modules/es.parse-float");
 
-require("core-js/modules/es.parse-int");
-
 require("core-js/modules/es.promise");
 
 require("core-js/modules/es.string.iterator");
@@ -61,19 +59,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var axios = require('axios');
-
-var encoding = require('../utils/encoding');
 
 var _require = require('../utils/hex'),
     stringToHex = _require.stringToHex;
@@ -89,9 +83,6 @@ function (_CosmosSdkRpc) {
     _classCallCheck(this, CyberdRpc);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(CyberdRpc).call(this, rpc, constants));
-
-    _defineProperty(_assertThisInitialized(_this), "cosmosBuilder", void 0);
-
     _this.cosmosBuilder = new _cyberDBuilder.default();
     return _this;
   }
@@ -324,61 +315,33 @@ function (_CosmosSdkRpc) {
       var _transfer = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee7(txOptions, addressTo, gAmount) {
-        var chainId, account, amount, keyPair, requestData, txRequest;
+        var amount, options, txRequest;
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
-                _context7.next = 2;
-                return this.getNetworkId();
-
-              case 2:
-                chainId = _context7.sent;
-                _context7.next = 5;
-                return this.getAccountInfo(txOptions.address);
-
-              case 5:
-                account = _context7.sent;
                 amount = parseFloat(gAmount) * Math.pow(10, 9);
-                keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
-                requestData = {
-                  account: {
-                    address: keyPair.address,
-                    publicKey: keyPair.publicKey,
-                    privateKey: keyPair.privateKey,
-                    accountNumber: parseInt(account.account_number, 10),
-                    sequence: parseInt(account.sequence, 10)
-                  },
-                  chainId: chainId,
-                  amount: amount,
+                _context7.next = 3;
+                return this.prepareOptions(txOptions, {
+                  from: txOptions.address,
                   to: addressTo,
+                  amount: amount,
                   denom: 'cyb',
                   fee: {
                     denom: '',
                     amount: '0'
-                  },
-                  memo: ''
-                };
-                txRequest = this.cosmosBuilder.sendRequest(requestData);
-                return _context7.abrupt("return", axios({
+                  }
+                });
+
+              case 3:
+                options = _context7.sent;
+                txRequest = this.cosmosBuilder.sendRequest(options);
+                return _context7.abrupt("return", this.handleResponse(axios({
                   method: 'get',
                   url: "".concat(this.rpc, "/submit_signed_send?data=\"").concat(this.prepareRequestData(txRequest), "\"")
-                }).then(function (res) {
-                  if (!res.data) {
-                    throw new Error('Empty data');
-                  }
+                })));
 
-                  if (res.data.error) {
-                    throw res.data.error;
-                  }
-
-                  return res.data;
-                }).catch(function (error) {
-                  console.error('Transfer error', error);
-                  throw error;
-                }));
-
-              case 11:
+              case 6:
               case "end":
                 return _context7.stop();
             }
@@ -398,59 +361,30 @@ function (_CosmosSdkRpc) {
       var _link = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee8(txOptions, keywordHash, contentHash) {
-        var chainId, account, keyPair, requestData, txRequest;
+        var options, txRequest;
         return regeneratorRuntime.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
                 _context8.next = 2;
-                return this.getNetworkId();
-
-              case 2:
-                chainId = _context8.sent;
-                _context8.next = 5;
-                return this.getAccountInfo(txOptions.address);
-
-              case 5:
-                account = _context8.sent;
-                keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
-                requestData = {
-                  account: {
-                    address: keyPair.address,
-                    publicKey: keyPair.publicKey,
-                    privateKey: keyPair.privateKey,
-                    accountNumber: parseInt(account.account_number, 10),
-                    sequence: parseInt(account.sequence, 10)
-                  },
+                return this.prepareOptions(txOptions, {
+                  fromCid: keywordHash,
+                  toCid: contentHash,
                   fee: {
                     denom: '',
                     amount: '0'
-                  },
-                  chainId: chainId,
-                  fromCid: keywordHash,
-                  toCid: contentHash,
-                  memo: ''
-                };
-                txRequest = this.cosmosBuilder.linkRequest(requestData);
-                return _context8.abrupt("return", axios({
+                  }
+                });
+
+              case 2:
+                options = _context8.sent;
+                txRequest = this.cosmosBuilder.linkRequest(options);
+                return _context8.abrupt("return", this.handleResponse(axios({
                   method: 'get',
                   url: "".concat(this.rpc, "/submit_signed_link?data=\"").concat(this.prepareRequestData(txRequest), "\"")
-                }).then(function (res) {
-                  if (!res.data) {
-                    throw new Error('Empty data');
-                  }
+                })));
 
-                  if (res.data.error) {
-                    throw res.data.error;
-                  }
-
-                  return res.data;
-                }).catch(function (error) {
-                  console.error('Link error', error);
-                  throw error;
-                }));
-
-              case 10:
+              case 5:
               case "end":
                 return _context8.stop();
             }
