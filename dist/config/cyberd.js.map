@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/config/cyberd.js"],"names":["module","exports","NetConfig"],"mappings":";;AAAA;;AAEAA,MAAM,CAACC,OAAP,GAAiB,IAAIC,mBAAJ,CAAc,OAAd,EAAuB,UAAvB,CAAjB","sourcesContent":["import { NetConfig } from '../config/abstract';\n\nmodule.exports = new NetConfig('cyber', 'cyberpub');\n"],"file":"cyberd.js"}

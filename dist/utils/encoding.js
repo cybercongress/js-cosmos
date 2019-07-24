@@ -1,3 +1,7 @@
+"use strict";
+
+var _abstract = require("../config/abstract");
+
 var _ = require('lodash');
 
 var _require = require('./common'),
@@ -9,23 +13,21 @@ var _require2 = require('./hex'),
 var _require3 = require('./bech32'),
     addressToBech32 = _require3.addressToBech32;
 
-module.exports = function (constants) {
+module.exports = function (config) {
   function encodeAccount(acc) {
     if (_.isEmpty(acc)) {
       return null;
     }
 
-    var defaultCoding = constants.DEFAULT_ENCODING;
-
-    switch (defaultCoding) {
-      case constants.ENCODING_BECH32:
+    switch (config.DEFAULT_ENCODING) {
+      case _abstract.NetEncodingEnum.BECH32:
         {
           if (isHex(acc.address)) {
-            acc.address = addressToBech32(constants.PREFIX_BECH32_ACCADDR, acc.address);
+            acc.address = addressToBech32(config.PREFIX_BECH32_ACCADDR, acc.address);
           }
 
           if (isHex(acc.publicKey)) {
-            acc.publicKey = addressToBech32(constants.PREFIX_BECH32_ACCPUB, acc.publicKey);
+            acc.publicKey = addressToBech32(config.PREFIX_BECH32_ACCPUB, acc.publicKey);
           }
 
           break;

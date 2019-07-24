@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/config/cosmos.js"],"names":["module","exports","NetConfig"],"mappings":";;AAAA;;AAEAA,MAAM,CAACC,OAAP,GAAiB,IAAIC,mBAAJ,CAAc,QAAd,EAAwB,WAAxB,CAAjB","sourcesContent":["import { NetConfig } from '../config/abstract';\n\nmodule.exports = new NetConfig('cosmos', 'cosmospub');\n"],"file":"cosmos.js"}
