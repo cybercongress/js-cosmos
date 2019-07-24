@@ -96,7 +96,7 @@ Then - you can use this CustomMessage for build custom request.
 import CosmosSdkBuilder from 'cosmos-js/dist/builders/cosmosSdkBuilder';
 import CosmosCodec from 'cosmos-js/dist/codec';
 
-export default class MyCustomChainBuilder extends CosmosSdkBuilder {
+class MyCustomChainBuilder extends CosmosSdkBuilder {
   constructor() {
     super();
     // redefine codec for clear parent types and use only new types if you need
@@ -191,7 +191,7 @@ Then use `MyCustomChainRpc` like this:
 const myCustomChainRpc = new MyCustomChainRpc('http://rpc.server', new NetConfig('customprefix', 'custompubprefix'));
 
 myCustomChainRpc.executeCustomRequest(
-    {address: 'customprefix1adfp4t779mz5mqkp774l4d0umm2x9v4s42prxw', privateKey: 'a5b1305ebf29997a8a180b8bf322bc27b226e8cd00e243887e2129839c36bb2d'}, 
+    {privateKey: 'a5b1305ebf29997a8a180b8bf322bc27b226e8cd00e243887e2129839c36bb2d'}, 
     'my-custom-address', 
     '999'
 ).then(res => {

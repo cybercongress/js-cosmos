@@ -73,12 +73,16 @@ export default class CosmosSdkRpc {
     }
     return addressInfo.data.value;
   }
+  
+  getKeyPairByPrivateKey(privateKey) {
+    return encoding(this.config).importAccount(privateKey);
+  }
 
   async prepareOptions(txOptions, msgOptions) {
-    const chainId = await this.getNetworkId();
-    const account = await this.getAccountInfo(txOptions.address);
+    const keyPair = this.getKeyPairByPrivateKey(txOptions.privateKey);
     
-    const keyPair = encoding(this.config).importAccount(txOptions.privateKey);
+    const chainId = await this.getNetworkId();
+    const account = await this.getAccountInfo(keyPair.address);
 
     return _.extend({
       account: {
