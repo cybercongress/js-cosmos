@@ -8,13 +8,13 @@ const encoding = require('../utils/encoding');
 export default class CosmosSdkRpc {
   rpc;
 
-  constants;
+  config;
 
   cosmosBuilder;
 
-  constructor(rpc, constants) {
+  constructor(rpc, config) {
     this.rpc = rpc;
-    this.constants = constants;
+    this.config = config;
     this.cosmosBuilder = new CosmosSdkBuilder();
   }
 
@@ -78,7 +78,7 @@ export default class CosmosSdkRpc {
     const chainId = await this.getNetworkId();
     const account = await this.getAccountInfo(txOptions.address);
     
-    const keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
+    const keyPair = encoding(this.config).importAccount(txOptions.privateKey);
 
     return _.extend({
       account: {

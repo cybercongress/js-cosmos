@@ -65,7 +65,7 @@ function () {
     _defineProperty(this, "cosmosBuilder", void 0);
 
     this.rpc = rpc;
-    this.constants = constants;
+    this.config = constants;
     this.cosmosBuilder = new _cosmosSdkBuilder.default();
   }
 

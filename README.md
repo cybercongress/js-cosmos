@@ -188,8 +188,7 @@ class MyCustomChainRpc extends CosmosSdkRpc {
 ```
 Then use `MyCustomChainRpc` like this:
 ```$js
-const chainConf = { NetConfig: { PREFIX_BECH32_ACCADDR: 'customprefix', PREFIX_BECH32_ACCPUB: 'customprefixpub', ENCODING_BECH32: 'bech32', DEFAULT_ENCODING: 'bech32'} };
-const myCustomChainRpc = new MyCustomChainRpc('http://rpc.server', chainConf);
+const myCustomChainRpc = new MyCustomChainRpc('http://rpc.server', new NetConfig('customprefix', 'custompubprefix'));
 
 myCustomChainRpc.executeCustomRequest(
     {address: 'customprefix1adfp4t779mz5mqkp774l4d0umm2x9v4s42prxw', privateKey: 'a5b1305ebf29997a8a180b8bf322bc27b226e8cd00e243887e2129839c36bb2d'}, 

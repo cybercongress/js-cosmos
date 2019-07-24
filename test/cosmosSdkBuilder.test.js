@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const constants = require('../src/constants/cosmos');
+const netConfig = require('../src/config/cosmos');
 const encoding = require('../src/utils/encoding');
 import CosmosSdkBuilder from '../src/builders/cosmosSdkBuilder';
 
@@ -11,7 +11,7 @@ describe("cosmosSdkBuilder", function () {
 
     const toAddress = 'cosmos14mgwf74me9jneaj7pxna873ufrqdwzes2vt4kl';
     const amount = 1 * 10 ** 6;
-    const keyPair = encoding(constants.NetConfig).importAccount(fromPrivateKey);
+    const keyPair = encoding(netConfig).importAccount(fromPrivateKey);
 
     const requestData = {
       account: {
