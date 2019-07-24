@@ -18,7 +18,7 @@ describe("cyberDBuilder", function () {
         address: keyPair.address,
         publicKey: keyPair.publicKey,
         privateKey: keyPair.privateKey,
-        accountNumber: 0,
+        accountNumber: '0',
         sequence: 0,
       },
       chainId: 'euler-4',

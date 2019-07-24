@@ -46,7 +46,7 @@ export default class CyberDBuilder extends CosmosSdkBuilder {
 
   getSignature(options, signedBytes) {
     const { account } = options;
-    return new CyberDSignature(Array.from(hexToBytes(bech32ToAddress(account.publicKey))), Array.from(signedBytes), account.accountNumber, account.sequence);
+    return new CyberDSignature(Array.from(hexToBytes(bech32ToAddress(account.publicKey))), Array.from(signedBytes), parseInt(account.accountNumber), account.sequence);
   }
 
   signMessageJson(options, messageJson) {
