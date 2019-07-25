@@ -20,6 +20,8 @@ require("core-js/modules/es.object.set-prototype-of");
 
 require("core-js/modules/es.object.to-string");
 
+require("core-js/modules/es.parse-int");
+
 require("core-js/modules/es.regexp.to-string");
 
 require("core-js/modules/es.string.iterator");
@@ -130,7 +132,7 @@ function (_CosmosSdkBuilder) {
     key: "getSignature",
     value: function getSignature(options, signedBytes) {
       var account = options.account;
-      return new CyberDSignature(Array.from(hexToBytes(bech32ToAddress(account.publicKey))), Array.from(signedBytes), account.accountNumber, account.sequence);
+      return new CyberDSignature(Array.from(hexToBytes(bech32ToAddress(account.publicKey))), Array.from(signedBytes), parseInt(account.accountNumber), account.sequence);
     }
   }, {
     key: "signMessageJson",

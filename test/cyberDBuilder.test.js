@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const constants = require('../src/constants/cyberd');
+const netConfig = require('../src/config/cyberd');
 const encoding = require('../src/utils/encoding');
 import CyberDBuilder from '../src/builders/cyberDBuilder';
 
@@ -11,14 +11,14 @@ describe("cyberDBuilder", function () {
 
     const toAddress = 'cyber14mgwf74me9jneaj7pxna873ufrqdwzesd8val9';
     const amount = 1 * 10 ** 9;
-    const keyPair = encoding(constants.NetConfig).importAccount(fromPrivateKey);
+    const keyPair = encoding(netConfig).importAccount(fromPrivateKey);
 
     const requestData = {
       account: {
         address: keyPair.address,
         publicKey: keyPair.publicKey,
         privateKey: keyPair.privateKey,
-        accountNumber: 0,
+        accountNumber: '0',
         sequence: 0,
       },
       chainId: 'euler-4',

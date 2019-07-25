@@ -3,21 +3,22 @@ const { importPrivateKey } = require('./common');
 const { isHex } = require('./hex');
 const { addressToBech32 } = require('./bech32');
 
-module.exports = function(constants) {
+import { NetEncodingEnum } from '../config/abstract';
+
+module.exports = function(config) {
   function encodeAccount(acc) {
     if (_.isEmpty(acc)) {
       return null;
     }
-    const defaultCoding = constants.DEFAULT_ENCODING;
 
-    switch (defaultCoding) {
-      case constants.ENCODING_BECH32: {
+    switch (config.DEFAULT_ENCODING) {
+      case NetEncodingEnum.BECH32: {
         if (isHex(acc.address)) {
-          acc.address = addressToBech32(constants.PREFIX_BECH32_ACCADDR, acc.address);
+          acc.address = addressToBech32(config.PREFIX_BECH32_ACCADDR, acc.address);
         }
 
         if (isHex(acc.publicKey)) {
-          acc.publicKey = addressToBech32(constants.PREFIX_BECH32_ACCPUB, acc.publicKey);
+          acc.publicKey = addressToBech32(config.PREFIX_BECH32_ACCPUB, acc.publicKey);
         }
         break;
       }

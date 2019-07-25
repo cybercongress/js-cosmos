@@ -55,17 +55,17 @@ var encoding = require('../utils/encoding');
 var CosmosSdkRpc =
 /*#__PURE__*/
 function () {
-  function CosmosSdkRpc(rpc, constants) {
+  function CosmosSdkRpc(rpc, config) {
     _classCallCheck(this, CosmosSdkRpc);
 
     _defineProperty(this, "rpc", void 0);
 
-    _defineProperty(this, "constants", void 0);
+    _defineProperty(this, "config", void 0);
 
     _defineProperty(this, "cosmosBuilder", void 0);
 
     this.rpc = rpc;
-    this.constants = constants;
+    this.config = config;
     this.cosmosBuilder = new _cosmosSdkBuilder.default();
   }
 
@@ -274,27 +274,32 @@ function () {
       return getAccountInfo;
     }()
   }, {
+    key: "getKeyPairByPrivateKey",
+    value: function getKeyPairByPrivateKey(privateKey) {
+      return encoding(this.config).importAccount(privateKey);
+    }
+  }, {
     key: "prepareOptions",
     value: function () {
       var _prepareOptions = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee7(txOptions, msgOptions) {
-        var chainId, account, keyPair;
+        var keyPair, chainId, account;
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
-                _context7.next = 2;
+                keyPair = this.getKeyPairByPrivateKey(txOptions.privateKey);
+                _context7.next = 3;
                 return this.getNetworkId();
 
-              case 2:
+              case 3:
                 chainId = _context7.sent;
-                _context7.next = 5;
-                return this.getAccountInfo(txOptions.address);
+                _context7.next = 6;
+                return this.getAccountInfo(keyPair.address);
 
-              case 5:
+              case 6:
                 account = _context7.sent;
-                keyPair = encoding(this.constants.NetConfig).importAccount(txOptions.privateKey);
                 return _context7.abrupt("return", _.extend({
                   account: {
                     address: keyPair.address,
