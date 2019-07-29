@@ -1,5 +1,7 @@
 ## Install
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+
 ```
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
@@ -208,6 +210,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore -->
 <table>
   <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/do-ngoc-tan-64260072/"><img src="https://avatars3.githubusercontent.com/u/8816061?v=4" width="100px;" alt="TanNgocDo"/><br /><sub><b>TanNgocDo</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=TanNgocDo" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/litvintech"><img src="https://avatars2.githubusercontent.com/u/1690657?v=4" width="100px;" alt="Valery Litvin"/><br /><sub><b>Valery Litvin</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=litvintech" title="Code">💻</a> <a href="#projectManagement-litvintech" title="Project Management">📆</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=litvintech" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Jonybang"><img src="https://avatars0.githubusercontent.com/u/4842007?v=4" width="100px;" alt="Jonybang"/><br /><sub><b>Jonybang</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Code">💻</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Tests">⚠️</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Documentation">📖</a> <a href="#maintenance-Jonybang" title="Maintenance">🚧</a></td>
   </tr>
