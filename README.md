@@ -1,4 +1,7 @@
-
+<h1 align="center">
+  <img src="img/logo.png"
+  alt="js-cosmos" width="470"></a>
+</h1>
 
 <h3 align="center">An Implementation of Cosmos for clients with Javascript</h3>
 <div align="center">
@@ -189,7 +192,7 @@ defined in these methods.
 
 You can see the example in [cyberDBuilder.js](./src/builders/cyberDBuilder.js).
 
-# Custom RPC definition
+## Custom RPC definition
 
 For definition method for sending your custom transaction to rpc server - you can
 create custom rpc class:
