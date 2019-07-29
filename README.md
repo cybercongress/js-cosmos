@@ -53,11 +53,13 @@
 
 ## TODO:
 
-Implement Tendermint builder and RPC for generate and send transactions for general purposes that will be valid for any cosmos network without using cosmos-sdk (aka LCD, Gaia-Lite)
+1. Implement Tendermint builder and RPC for generate and send transactions for general purposes that will be valid for any cosmos network without using cosmos-sdk (aka LCD, Gaia-Lite)
+
+2. Full test coverage
 
 ## TOFI:
 
-> Describe known bugs (TO-FI )
+1. Documentation
 
 ## Install
 
