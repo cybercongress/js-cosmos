@@ -53,7 +53,7 @@
 
 ## TODO:
 
-> Describe planned features (TO-DO)
+Implement Tendermint builder and RPC for generate and send transactions for general purposes that will be valid for any cosmos network without using cosmos-sdk (aka LCD, Gaia-Lite)
 
 ## TOFI:
 
