@@ -41,7 +41,7 @@
 </div>
 
 ## Overview
-> Add small intro to js-cosmos (motivation, princiles, vs protobuf) with pics
+> Add small intro to js-cosmos (motivation, princiles) with pics
 
 ## Features
 
