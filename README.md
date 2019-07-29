@@ -1,3 +1,5 @@
+
+
 <h3 align="center">An Implementation of Cosmos for clients with Javascript</h3>
 <div align="center">
   Current state: 1.0.0 First major public release
@@ -36,14 +38,14 @@
 </div>
 
 ## Install
-```
+```bash
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
 
-# RPC server calling
+## RPC server calling
 
 ## Usage example for Cosmos-sdk RPC
-```$js
+```js
 import CosmosSdkRpc from 'cosmos-js/dist/rpc/cosmosSdkRpc';
 const constants = require('cosmos-js/dist/constants/cosmos');
 
@@ -71,9 +73,9 @@ cosmosRpc
 
 ```
 
-## Usage example for CyberD RPC
+## Usage example for Cyberd RPC
 
-```$js
+```js
 
 import CyberDRpc from 'cosmos-js/dist/rpc/cyberdRpc';
 
@@ -102,7 +104,7 @@ cyberdRpc
   });
 ```
 
-# Custom builder definition
+## Custom builder definition
 
 You might need use cosmos-sdk builder but with some custom RPC methods or with changes 
 in transaction structure.
@@ -112,7 +114,7 @@ like CosmosSdkBuilder.
 
 For creating custom request - need to define js-amino type first of your custom message:
 
-```$js
+```js
 const { TypeFactory, Types } = require('js-amino');
 
 const CustomMessage = TypeFactory.create('CustomMessage', [
@@ -129,7 +131,7 @@ const CustomMessage = TypeFactory.create('CustomMessage', [
 
 Then - you can use this CustomMessage for build custom request.
 
-```$js
+```js
 import CosmosSdkBuilder from 'cosmos-js/dist/builders/cosmosSdkBuilder';
 import CosmosCodec from 'cosmos-js/dist/codec';
 
@@ -149,7 +151,7 @@ class MyCustomChainBuilder extends CosmosSdkBuilder {
 ```
 
 Then - you can build your request manually:
-```$js
+```js
 const requestData = {
   account: {
     address: keyPair.address,
@@ -191,7 +193,7 @@ You can see the example in [cyberDBuilder.js](./src/builders/cyberDBuilder.js).
 
 For definition method for sending your custom transaction to rpc server - you can
 create custom rpc class:
-```$js
+```js
 import CosmosSdkRpc from 'cosmos-js/dist/rpc/cosmosSdkRpc';
 
 class MyCustomChainRpc extends CosmosSdkRpc {
@@ -224,7 +226,7 @@ class MyCustomChainRpc extends CosmosSdkRpc {
 }
 ```
 Then use `MyCustomChainRpc` like this:
-```$js
+```js
 const myCustomChainRpc = new MyCustomChainRpc('http://rpc.server', new NetConfig('customprefix', 'custompubprefix'));
 
 myCustomChainRpc.executeCustomRequest(
