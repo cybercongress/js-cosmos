@@ -60,7 +60,6 @@
 > Describe known bugs (TO-FI )
 
 ## Install
-
 ```bash
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
@@ -68,7 +67,6 @@ npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ## RPC server calling
 
 ## Usage example for Cosmos-sdk RPC
-
 ```js
 import CosmosSdkRpc from 'cosmos-js/dist/rpc/cosmosSdkRpc';
 const constants = require('cosmos-js/dist/constants/cosmos');
