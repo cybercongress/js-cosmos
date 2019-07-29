@@ -1,0 +1,54 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "SaveTheAles",
+      "name": "Ales Puchilo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/36516972?v=4",
+      "profile": "https://github.com/SaveTheAles",
+      "contributions": [
+        "doc"
+      ]
+    },
+      "login": "TanNgocDo",
+      "name": "TanNgocDo",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/8816061?v=4",
+      "profile": "https://www.linkedin.com/in/do-ngoc-tan-64260072/",
+      "contributions": [
+        "code"
+      ]
+     },
+     {
+      "login": "litvintech",
+      "name": "Valery Litvin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1690657?v=4",
+      "profile": "https://github.com/litvintech",
+      "contributions": [
+        "code",
+        "projectManagement",
+        "doc"
+      ]
+     },
+     {
+      "login": "Jonybang",
+      "name": "Jonybang",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/4842007?v=4",
+      "profile": "https://github.com/Jonybang",
+      "contributions": [
+        "code",
+        "test",
+        "doc",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "js-cosmos",
+  "projectOwner": "cybercongress",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
