@@ -4,7 +4,8 @@
   "author": "jonybang <Jonybange@gmail.com>",
   "scripts": {
     "lint": "eslint --ext .js src",
-    "test": "./node_modules/.bin/mocha --exit -r @babel/register 'test/**/*.test.js'",
+    "test": "nyc --reporter=html --reporter=text ./node_modules/.bin/mocha --exit -r @babel/register 'test/**/*.test.js'",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "clean": "rm -rf dist && mkdir dist",
     "build-src": "./node_modules/.bin/babel -d ./dist ./src -s",
     "build": "npm run clean && npm run build-src"
@@ -33,6 +34,7 @@
     "babel-loader": "^8.0.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
+    "coveralls": "^3.0.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-config-prettier": "^4.3.0",
@@ -41,6 +43,7 @@
     "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1"
   }
 }
