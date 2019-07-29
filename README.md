@@ -51,6 +51,14 @@
 4. Possibility to redefine any step of transaction creation for custom networks like Cyberd
 5. Sending any default or custom transaction by one line by passing address, privateKey and transaction params
 
+## TODO:
+
+> Describe planned features (TO-DO)
+
+## TOFI:
+
+> Describe known bugs (TO-FI )
+
 ## Install
 ```bash
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
@@ -259,3 +267,7 @@ We want to pay you for your contribution! We constantly fund our issues on [gitc
 <a href="https://gitcoin.co/explorer?q=js-amino">
     <img src="https://gitcoin.co/funding/embed?repo=https://github.com/cybercongress/js-cosmos">
 </a>
+
+## Contributing Guide
+
+Contribution are welcome! Please read this [guide](https://github.com/cybercongress/js-cosmos/blob/master/.github/CONTRIBUTING.md) before contributing.
