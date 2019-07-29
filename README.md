@@ -23,7 +23,7 @@
 </div>
 <br/>
 <div align="center">
-<img src="https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square" alt="contributors"/>
+<img src="https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square" alt="contributors"/>
   <img src="https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square" alt="Contributions Welcome" />
   <a href="https://t.me/fuckgoogle"> <img src="https://img.shields.io/badge/Join%20Us%20On-Telegram-2599D2.svg?style=flat-square" alt="Join Us On Telegram" /></a>
   <img src="https://img.shields.io/github/license/cybercongress/js-cosmos.svg?style=flat-square" alt="MIT license"/>
@@ -60,7 +60,7 @@
 > Describe known bugs (TO-FI )
 
 ## Install
-```bash
+
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
 
@@ -260,6 +260,7 @@ myCustomChainRpc.executeCustomRequest(
 });
 ```
 
+
 ## Gitcoin program
 
 We want to pay you for your contribution! We constantly fund our issues on [gitcoin](https://gitcoin.co/profile/cybercongress) and attach good description for them with project state and user stories. We try to answer to comments regular in issues and in our [devChat](https://t.me/fuckgoogle).
@@ -271,3 +272,22 @@ We want to pay you for your contribution! We constantly fund our issues on [gitc
 ## Contributing Guide
 
 Contribution are welcome! Please read this [guide](https://github.com/cybercongress/js-cosmos/blob/master/.github/CONTRIBUTING.md) before contributing.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/SaveTheAles"><img src="https://avatars0.githubusercontent.com/u/36516972?v=4" width="100px;" alt="Ales Puchilo"/><br /><sub><b>Ales Puchilo</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=SaveTheAles" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/do-ngoc-tan-64260072/"><img src="https://avatars3.githubusercontent.com/u/8816061?v=4" width="100px;" alt="TanNgocDo"/><br /><sub><b>TanNgocDo</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=TanNgocDo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/litvintech"><img src="https://avatars2.githubusercontent.com/u/1690657?v=4" width="100px;" alt="Valery Litvin"/><br /><sub><b>Valery Litvin</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=litvintech" title="Code">💻</a> <a href="#projectManagement-litvintech" title="Project Management">📆</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=litvintech" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Jonybang"><img src="https://avatars0.githubusercontent.com/u/4842007?v=4" width="100px;" alt="Jonybang"/><br /><sub><b>Jonybang</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Code">💻</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Tests">⚠️</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Documentation">📖</a> <a href="#maintenance-Jonybang" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
