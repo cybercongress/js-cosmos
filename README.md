@@ -40,6 +40,9 @@
   <a href="https://twitter.com/cyber_devs">cyber•Congress</a>
 </div>
 
+## Overview
+> Add small intro to js-cosmos (motivation, princiles, vs protobuf) with pics
+
 ## Features
 
 1. Separation of tx builder and server connection
