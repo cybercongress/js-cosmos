@@ -61,6 +61,7 @@
 
 ## Install
 
+```bash
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
 
