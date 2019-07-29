@@ -1,4 +1,5 @@
 ## Install
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 ```
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
@@ -198,3 +199,19 @@ myCustomChainRpc.executeCustomRequest(
     console.log('res', res);
 });
 ```
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Jonybang"><img src="https://avatars0.githubusercontent.com/u/4842007?v=4" width="100px;" alt="Jonybang"/><br /><sub><b>Jonybang</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
