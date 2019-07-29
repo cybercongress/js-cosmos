@@ -1,3 +1,40 @@
+<h3 align="center">An Implementation of Cosmos for clients with Javascript</h3>
+<div align="center">
+  Current state: 1.0.0 First major public release
+</div>
+
+<br />
+
+<div align="center">
+<img src="https://img.shields.io/github/issues-raw/cybercongress/js-cosmos.svg?color=green&style=flat-square" alt="opened issues"/>
+<img src="https://img.shields.io/github/issues-closed-raw/cybercongress/js-cosmos.svg?color=blue&style=flat-square" alt="closed issues" />
+<img src="https://img.shields.io/github/issues-pr-closed/cybercongress/js-cosmos.svg?color=green&style=flat-square" alt="closed PR"/>
+<img src="https://img.shields.io/github/issues-pr-raw/cybercongress/js-cosmos.svg?color=green&style=flat-square" alt="opened PR"/>
+</div>
+<br/>
+<div align="center">
+<a href="https://circleci.com/gh/cybercongress/js-cosmos/tree/master"><img src="https://circleci.com/gh/cybercongress/js-cosmos/tree/master.svg?style=svg"></a>
+<a href='https://coveralls.io/github/cybercongress/js-cosmos?branch=30-add-ci-components-for-release'><img src='https://coveralls.io/repos/github/cybercongress/js-cosmos/badge.svg?branch=30-add-ci-components-for-release' alt='Coverage Status' /></a>
+</div>
+<br/>
+<div align="center">
+<img src="https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square" alt="contributors"/>
+  <img src="https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square" alt="Contributions Welcome" />
+  <a href="https://t.me/fuckgoogle"> <img src="https://img.shields.io/badge/Join%20Us%20On-Telegram-2599D2.svg?style=flat-square" alt="Join Us On Telegram" /></a>
+  <img src="https://img.shields.io/github/license/cybercongress/js-cosmos.svg?style=flat-square" alt="MIT license"/>
+</div>
+<br/>
+
+
+<div align="center">
+  <sub>Built and maintenance by
+  <a href="https://github.com/cybercongress/js-cosmos/graphs/contributors">
+    contributors
+  </a>
+  and
+  <a href="https://twitter.com/cyber_devs">cyber•Congress</a>
+</div>
+
 ## Install
 ```
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
@@ -198,3 +235,11 @@ myCustomChainRpc.executeCustomRequest(
     console.log('res', res);
 });
 ```
+
+## Gitcoin program
+
+We want to pay you for your contribution! We constantly fund our issues on [gitcoin](https://gitcoin.co/profile/cybercongress) and attach good description for them with project state and user stories. We try to answer to comments regular in issues and in our [devChat](https://t.me/fuckgoogle).
+
+<a href="https://gitcoin.co/explorer?q=js-amino">
+    <img src="https://gitcoin.co/funding/embed?repo=https://github.com/cybercongress/js-cosmos">
+</a>
