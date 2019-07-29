@@ -40,6 +40,14 @@
   <a href="https://twitter.com/cyber_devs">cyber•Congress</a>
 </div>
 
+## Features
+
+1. Separation of tx builder and server connection
+2. Cosmos-sdk and Cyberd chains implemented
+3. OOP-based expandable architecture for supporting any type of cosmos or tendermint chains
+4. Possibility to redefine any step of transaction creation for custom networks like Cyberd
+5. Sending any default or custom transaction by one line by passing address, privateKey and transaction params
+
 ## Install
 ```bash
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
