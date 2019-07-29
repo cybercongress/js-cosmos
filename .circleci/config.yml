@@ -46,7 +46,7 @@ jobs:
                   git config --global user.name "Cyber Admin"
                   git add CHANGELOG.md
                   git commit -m "Circle CI: Update Changelog"
-                  git push -q https://${DOCS_GITHUB_TOKEN}@github.com/cybercongress/js-cosmos.git master
+                  git push -q https://${DOCS_GITHUB_TOKEN}@github.com/cybercongress/js-cosmos.git \#4-prepare-1.0.0-release
                 fi
 
   update_doc:
@@ -81,7 +81,7 @@ jobs:
               git add site/content/docs/js-cosmos/
               git commit -m "Circle CI: Update Docs"
               # Push quietly to prevent showing the token in log
-              git push -q https://${DOCS_GITHUB_TOKEN}@github.com/cybercongress/congress.git master
+              git push -q https://${DOCS_GITHUB_TOKEN}@github.com/cybercongress/congress.git \#4-prepare-1.0.0-release
             fi
 workflows:
   version: 2
@@ -91,12 +91,12 @@ workflows:
     - update_changelog:
         filters:
           branches:
-            only: master
+            only: \#4-prepare-1.0.0-release
         requires:
           - build
     - update_doc:
         filters:
           branches:
-            only: master
+            only: \#4-prepare-1.0.0-release
         requires:
           - build
