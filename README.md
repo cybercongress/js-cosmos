@@ -208,7 +208,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Jonybang"><img src="https://avatars0.githubusercontent.com/u/4842007?v=4" width="100px;" alt="Jonybang"/><br /><sub><b>Jonybang</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Jonybang"><img src="https://avatars0.githubusercontent.com/u/4842007?v=4" width="100px;" alt="Jonybang"/><br /><sub><b>Jonybang</b></sub></a><br /><a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Code">💻</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Tests">⚠️</a> <a href="https://github.com/cybercongress/js-cosmos/commits?author=Jonybang" title="Documentation">📖</a></td>
   </tr>
 </table>
 
