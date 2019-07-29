@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Jonybang",
+      "name": "Jonybang",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/4842007?v=4",
+      "profile": "https://github.com/Jonybang",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "js-cosmos",
+  "projectOwner": "cybercongress",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
