@@ -3,7 +3,7 @@
   alt="js-cosmos" width="470"></a>
 </h1>
 
-<h3 align="center">An Implementation of Cosmos for clients with Javascript</h3>
+<h3 align="center">Client library for Cosmos-SDK/Tendermint</h3>
 <div align="center">
   Current state: 1.0.0 First major public release
 </div>
