@@ -19,7 +19,7 @@
 <br/>
 <div align="center">
 <a href="https://circleci.com/gh/cybercongress/js-cosmos/tree/master"><img src="https://circleci.com/gh/cybercongress/js-cosmos/tree/master.svg?style=svg"></a>
-<a href='https://coveralls.io/github/cybercongress/js-cosmos?branch=30-add-ci-components-for-release'><img src='https://coveralls.io/repos/github/cybercongress/js-cosmos/badge.svg?branch=30-add-ci-components-for-release' alt='Coverage Status' /></a>
+<a href='https://coveralls.io/github/cybercongress/js-cosmos?branch=master'><img src='https://coveralls.io/repos/github/cybercongress/js-cosmos/badge.svg?branch=master' alt='Coverage Status' /></a>
 </div>
 <br/>
 <div align="center">
