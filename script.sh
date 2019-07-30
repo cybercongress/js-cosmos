@@ -18,7 +18,7 @@ echo "---
 project: js-cosmos
 ---" >> temp.md
 cat /.github/CONTRIBUTING.md >> temp.md
-cat temp.md > /.github/CONTRIBUTING.md
+cat temp.md > CONTRIBUTING.md
 rm -rf temp.md
 
 touch temp.md

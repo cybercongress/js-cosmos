@@ -72,7 +72,7 @@ jobs:
             cp -r ~/build/img/. ./site/content/docs/js-cosmos/img
             cp -r ~/build/docs/. ./site/content/docs/js-cosmos/
             cp ~/build/CHANGELOG.md ./site/content/docs/js-cosmos/Changelog.md
-            cp ~/build/.github/CONTRIBUTING.md ./site/content/docs/js-cosmos/Contributing.md
+            cp ~/build/CONTRIBUTING.md ./site/content/docs/js-cosmos/Contributing.md
             git add -N site/content/docs/js-cosmos
             diff=$(git diff site/content/docs/js-cosmos/)
             if [[  -n  "$diff" ]]; then
