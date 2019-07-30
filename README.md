@@ -41,7 +41,12 @@
 </div>
 
 ## Overview
-> Add small intro to js-cosmos (motivation, princiles) with pics
+
+The easily scaled library for creating and sending transactions to nodes Cosmos based networks. 
+
+The library provides to use build-in methods for executing popular functions in Cosmos based networks or adding custom methods after creating message structure with [js-amino](https://github.com/cybercongress/js-amino).
+
+The objective is providing query constructor to Cosmos community. By this way without additional efforts, it's an opportunity to supplement and customize existing classes of builders and RPC clients for interaction with any Cosmos based network by DRY and KISS principles.
 
 ## Features
 
@@ -67,8 +72,6 @@
 ```bash
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
-
-## RPC server calling
 
 ## Usage example for Cosmos-sdk RPC
 ```js
