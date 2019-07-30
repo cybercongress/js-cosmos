@@ -69,6 +69,7 @@ jobs:
           command: |
             # We need to remove current files in folder to avoid duplicating renamed files
             rm -rf ./site/content/docs/js-cosmos/*
+            cp -r ~/build/img/. ./site/content/docs/js-cosmos/img
             cp -r ~/build/docs/. ./site/content/docs/js-cosmos/
             cp ~/build/CHANGELOG.md ./site/content/docs/js-cosmos/Changelog.md
             cp ~/build/.github/CONTRIBUTING.md ./site/content/docs/js-cosmos/Contributing.md
