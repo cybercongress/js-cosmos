@@ -42,7 +42,7 @@
 
 ## Overview
 
-The easily scaled library for creating and sending transactions to nodes Cosmos based networks. 
+The easily scaled client library for creating, serializing and sending transactions for [cosmos-sdk](https://github.com/cosmos/cosmos-sdk/) based network's. 
 
 The library provides to use build-in methods for executing popular functions in Cosmos based networks or adding custom methods after creating message structure with [js-amino](https://github.com/cybercongress/js-amino).
 
@@ -51,10 +51,11 @@ The objective is providing query constructor to Cosmos community. By this way wi
 ## Features
 
 1. Separation of tx builder and server connection
-2. Cosmos-sdk and Cyberd chains implemented
+2. [Gaia](https://github.com/cosmos/gaia) (Cosmos Hub) and [Cyberd](https://github.com/cybercongress/cyberd) chains implemented
 3. OOP-based expandable architecture for supporting any type of cosmos or tendermint chains
 4. Possibility to redefine any step of transaction creation for custom networks like Cyberd
 5. Sending any default or custom transaction by one line by passing address, privateKey and transaction params
+6. Serialization using [js-amino](https://github.com/cybercongress/js-amino/)
 
 ## TODO:
 
@@ -66,6 +67,7 @@ The objective is providing query constructor to Cosmos community. By this way wi
 ## TOFI:
 
 1. Documentation
+
 
 ## Install
 
@@ -277,6 +279,8 @@ We want to pay you for your contribution! We constantly fund our issues on [gitc
 </a>
 
 ## Contributing Guide
+
+Guys, we appreciate your issues and features request, please leave your feedback if you are going to use or developing using this library.
 
 Contribution are welcome! Please read this [guide](https://github.com/cybercongress/js-cosmos/blob/master/.github/CONTRIBUTING.md) before contributing.
 
