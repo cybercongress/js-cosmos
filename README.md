@@ -1,15 +1,82 @@
+<h1 align="center">
+  <img src="img/logo.png"
+  alt="js-cosmos" width="470"></a>
+</h1>
+
+<h3 align="center">An Implementation of Cosmos for clients with Javascript</h3>
+<div align="center">
+  Current state: 1.0.0 First major public release
+</div>
+
+<br />
+
+<div align="center">
+<img src="https://img.shields.io/github/issues-raw/cybercongress/js-cosmos.svg?color=green&style=flat-square" alt="opened issues"/>
+<img src="https://img.shields.io/github/issues-closed-raw/cybercongress/js-cosmos.svg?color=blue&style=flat-square" alt="closed issues" />
+<img src="https://img.shields.io/github/issues-pr-closed/cybercongress/js-cosmos.svg?color=green&style=flat-square" alt="closed PR"/>
+<img src="https://img.shields.io/github/issues-pr-raw/cybercongress/js-cosmos.svg?color=green&style=flat-square" alt="opened PR"/>
+</div>
+<br/>
+<div align="center">
+<a href="https://circleci.com/gh/cybercongress/js-cosmos/tree/master"><img src="https://circleci.com/gh/cybercongress/js-cosmos/tree/master.svg?style=svg"></a>
+<a href='https://coveralls.io/github/cybercongress/js-cosmos?branch=30-add-ci-components-for-release'><img src='https://coveralls.io/repos/github/cybercongress/js-cosmos/badge.svg?branch=30-add-ci-components-for-release' alt='Coverage Status' /></a>
+</div>
+<br/>
+<div align="center">
+<img src="https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square" alt="contributors"/>
+  <img src="https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square" alt="Contributions Welcome" />
+  <a href="https://t.me/fuckgoogle"> <img src="https://img.shields.io/badge/Join%20Us%20On-Telegram-2599D2.svg?style=flat-square" alt="Join Us On Telegram" /></a>
+  <img src="https://img.shields.io/github/license/cybercongress/js-cosmos.svg?style=flat-square" alt="MIT license"/>
+</div>
+<br/>
+
+
+<div align="center">
+  <sub>Built and maintenance by
+  <a href="https://github.com/cybercongress/js-cosmos/graphs/contributors">
+    contributors
+  </a>
+  and
+  <a href="https://twitter.com/cyber_devs">cyber•Congress</a>
+</div>
+
+## Overview
+
+The easily scaled client library for creating, serializing and sending transactions for [cosmos-sdk](https://github.com/cosmos/cosmos-sdk/) based network's. 
+
+The library provides to use build-in methods for executing popular functions in Cosmos based networks or adding custom methods after creating message structure with [js-amino](https://github.com/cybercongress/js-amino).
+
+The objective is providing query constructor to Cosmos community. By this way without additional efforts, it's an opportunity to supplement and customize existing classes of builders and RPC clients for interaction with any Cosmos based network by DRY and KISS principles.
+
+## Features
+
+1. Separation of tx builder and server connection
+2. [Gaia](https://github.com/cosmos/gaia) (Cosmos Hub) and [Cyberd](https://github.com/cybercongress/cyberd) chains implemented
+3. OOP-based expandable architecture for supporting any type of cosmos or tendermint chains
+4. Possibility to redefine any step of transaction creation for custom networks like Cyberd
+5. Sending any default or custom transaction by one line by passing address, privateKey and transaction params
+6. Serialization using [js-amino](https://github.com/cybercongress/js-amino/)
+
+## TODO:
+
+1. Implement Tendermint builder and RPC for generate and send transactions for general purposes that will be valid for any cosmos network without using cosmos-sdk (aka LCD, Gaia-Lite)
+2. Implement builders and RPC for popular cosmos networks
+3. Emulate RPC server in tests and test requests sending for RPC classes
+4. Improve tests coverage
+
+## TOFI:
+
+1. Documentation
+
+
 ## Install
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
-
-```
+```bash
 npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
 ```
 
-# RPC server calling
-
 ## Usage example for Cosmos-sdk RPC
-```$js
+```js
 import CosmosSdkRpc from 'cosmos-js/dist/rpc/cosmosSdkRpc';
 const constants = require('cosmos-js/dist/constants/cosmos');
 
@@ -37,9 +104,9 @@ cosmosRpc
 
 ```
 
-## Usage example for CyberD RPC
+## Usage example for Cyberd RPC
 
-```$js
+```js
 
 import CyberDRpc from 'cosmos-js/dist/rpc/cyberdRpc';
 
@@ -68,7 +135,7 @@ cyberdRpc
   });
 ```
 
-# Custom builder definition
+## Custom builder definition
 
 You might need use cosmos-sdk builder but with some custom RPC methods or with changes 
 in transaction structure.
@@ -78,7 +145,7 @@ like CosmosSdkBuilder.
 
 For creating custom request - need to define js-amino type first of your custom message:
 
-```$js
+```js
 const { TypeFactory, Types } = require('js-amino');
 
 const CustomMessage = TypeFactory.create('CustomMessage', [
@@ -95,7 +162,7 @@ const CustomMessage = TypeFactory.create('CustomMessage', [
 
 Then - you can use this CustomMessage for build custom request.
 
-```$js
+```js
 import CosmosSdkBuilder from 'cosmos-js/dist/builders/cosmosSdkBuilder';
 import CosmosCodec from 'cosmos-js/dist/codec';
 
@@ -115,7 +182,7 @@ class MyCustomChainBuilder extends CosmosSdkBuilder {
 ```
 
 Then - you can build your request manually:
-```$js
+```js
 const requestData = {
   account: {
     address: keyPair.address,
@@ -153,11 +220,11 @@ defined in these methods.
 
 You can see the example in [cyberDBuilder.js](./src/builders/cyberDBuilder.js).
 
-# Custom RPC definition
+## Custom RPC definition
 
 For definition method for sending your custom transaction to rpc server - you can
 create custom rpc class:
-```$js
+```js
 import CosmosSdkRpc from 'cosmos-js/dist/rpc/cosmosSdkRpc';
 
 class MyCustomChainRpc extends CosmosSdkRpc {
@@ -190,7 +257,7 @@ class MyCustomChainRpc extends CosmosSdkRpc {
 }
 ```
 Then use `MyCustomChainRpc` like this:
-```$js
+```js
 const myCustomChainRpc = new MyCustomChainRpc('http://rpc.server', new NetConfig('customprefix', 'custompubprefix'));
 
 myCustomChainRpc.executeCustomRequest(
@@ -201,6 +268,21 @@ myCustomChainRpc.executeCustomRequest(
     console.log('res', res);
 });
 ```
+
+
+## Gitcoin program
+
+We want to pay you for your contribution! We constantly fund our issues on [gitcoin](https://gitcoin.co/profile/cybercongress) and attach good description for them with project state and user stories. We try to answer to comments regular in issues and in our [devChat](https://t.me/fuckgoogle).
+
+<a href="https://gitcoin.co/explorer?q=js-amino">
+    <img src="https://gitcoin.co/funding/embed?repo=https://github.com/cybercongress/js-cosmos">
+</a>
+
+## Contributing Guide
+
+Guys, we appreciate your issues and features request, please leave your feedback if you are going to use or developing using this library.
+
+Contribution are welcome! Please read this [guide](https://github.com/cybercongress/js-cosmos/blob/master/.github/CONTRIBUTING.md) before contributing.
 
 ## Contributors ✨
 
