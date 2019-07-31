@@ -76,7 +76,7 @@ The objective is providing query constructor to Cosmos community. By this way wi
 ## Install
 
 ```bash
-npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
+npm install js-cosmos --save
 ```
 
 ## Usage example for Cosmos-sdk RPC
