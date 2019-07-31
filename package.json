@@ -3,7 +3,7 @@
   "description": "The easily scaled client library for creating, serializing and sending transactions for cosmos-sdk/tendermint based network's",
   "license": "MIT",
   "homepage": "https://github.com/cybercongress/js-cosmos/",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "jonybang <Jonybange@gmail.com>",
   "scripts": {
     "lint": "eslint --ext .js src",
