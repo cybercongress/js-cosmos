@@ -5,7 +5,7 @@
 
 <h3 align="center">Client library for Cosmos-SDK/Tendermint</h3>
 <div align="center">
-  Current state: 1.0.0 First major public release
+  Current state: 1.0.1 First major public release
 </div>
 
 <br />
@@ -29,6 +29,8 @@
   <img src="https://img.shields.io/github/license/cybercongress/js-cosmos.svg?style=flat-square" alt="MIT license"/>
 </div>
 <br/>
+
+[![NPM](https://nodei.co/npm/js-cosmos.png)](https://npmjs.org/package/@cybercongress/js-cosmos)
 
 
 <div align="center">
