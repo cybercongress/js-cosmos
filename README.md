@@ -5,7 +5,7 @@
 
 <h3 align="center">Client library for Cosmos-SDK/Tendermint</h3>
 <div align="center">
-  Current state: 1.0.0 First major public release
+  Current state: 1.0.1 First major public release
 </div>
 
 <br />
@@ -30,6 +30,8 @@
 </div>
 <br/>
 
+[![NPM](https://nodei.co/npm/js-cosmos.png)](https://npmjs.org/package/@cybercongress/js-cosmos)
+
 
 <div align="center">
   <sub>Built and maintenance by
@@ -42,7 +44,7 @@
 
 ## Overview
 
-The easily scaled client library for creating, serializing and sending transactions for [cosmos-sdk](https://github.com/cosmos/cosmos-sdk/) based network's. 
+The easily scaled client library for creating, serializing and sending transactions for [cosmos-sdk](https://github.com/cosmos/cosmos-sdk/) and [tendermint](https://github.com/tendermint/tendermint) based networks. 
 
 The library provides to use build-in methods for executing popular functions in Cosmos based networks or adding custom methods after creating message structure with [js-amino](https://github.com/cybercongress/js-amino).
 
@@ -63,6 +65,8 @@ The objective is providing query constructor to Cosmos community. By this way wi
 2. Implement builders and RPC for popular cosmos networks
 3. Emulate RPC server in tests and test requests sending for RPC classes
 4. Improve tests coverage
+5. Ledger support
+6. Add more Gaia(Cosmos hub) methods
 
 ## TOFI:
 
@@ -72,7 +76,7 @@ The objective is providing query constructor to Cosmos community. By this way wi
 ## Install
 
 ```bash
-npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
+npm install js-cosmos --save
 ```
 
 ## Usage example for Cosmos-sdk RPC
