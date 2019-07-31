@@ -1,6 +1,6 @@
 ## Install
 ```
-npm install git://github.com/cybercongress/cosmos-js.git#cosmos-builder --save
+npm install js-cosmos --save
 ```
 
 # RPC server calling
