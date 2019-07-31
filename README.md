@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="img/logo.png"
+  <img src="https://github.com/cybercongress/js-cosmos/blob/master/img/logo.png"
   alt="js-cosmos" width="470"></a>
 </h1>
 
