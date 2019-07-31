@@ -44,7 +44,7 @@
 
 ## Overview
 
-The easily scaled client library for creating, serializing and sending transactions for [cosmos-sdk](https://github.com/cosmos/cosmos-sdk/) based network's. 
+The easily scaled client library for creating, serializing and sending transactions for [cosmos-sdk](https://github.com/cosmos/cosmos-sdk/) and [tendermint](https://github.com/tendermint/tendermint) based networks. 
 
 The library provides to use build-in methods for executing popular functions in Cosmos based networks or adding custom methods after creating message structure with [js-amino](https://github.com/cybercongress/js-amino).
 
