@@ -66,6 +66,7 @@ The objective is providing query constructor to Cosmos community. By this way wi
 3. Emulate RPC server in tests and test requests sending for RPC classes
 4. Improve tests coverage
 5. Ledger support
+6. Add more Gaia(Cosmos hub) methods
 
 ## TOFI:
 
