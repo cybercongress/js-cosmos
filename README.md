@@ -5,7 +5,7 @@
 
 <h3 align="center">Client library for Cosmos-SDK/Tendermint</h3>
 <div align="center">
-  Current state: 1.0.1 First major public release
+  Current state: 1.0.2 First major public release
 </div>
 
 <br />
